@@ -1,3 +1,5 @@
 /.import/
 /.git/
+/releases/
 *.import
+export_presets.cfg
