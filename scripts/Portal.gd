@@ -1,10 +1,7 @@
 extends Area
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var player = get_node("../player/KinematicBody")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
@@ -14,5 +11,6 @@ func _process(delta):
 
 
 func _on_Area_body_entered(body):
-	if body == $Spatial: print( true )
-	body
+	print (body)
+	print (player)
+	if body == player: get_tree().change_scene("res://levels/level2.tscn")
