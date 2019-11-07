@@ -6,11 +6,13 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#func _process(delta):
+#	pass
 
 
 func _on_Area_body_entered(body):
 	print (body)
 	print (player)
-	if body == player: get_tree().change_scene("res://levels/level2.tscn")
+	if body == player: 
+		get_tree().current_scene.queue_free()
+		get_tree().change_scene("res://levels/level2.tscn")

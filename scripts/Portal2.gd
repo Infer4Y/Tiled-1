@@ -15,4 +15,6 @@ func _process(delta):
 func _on_Area_body_entered(body):
 	print (body)
 	print (player)
-	if body == player: get_tree().change_scene("res://levels/level1.tscn")
+	if body == player:
+		get_tree().current_scene.queue_free()
+		get_tree().change_scene("res://levels/level1.tscn")

@@ -14,12 +14,14 @@ const MAX_SLOPE_ANGLE = 40
 
 var camera
 var rotation_helper
+var panel
 
 var MOUSE_SENSITIVITY = 0.1
 
 func _ready():
     camera = $MeshInstance/Camera
     rotation_helper = $MeshInstance
+    panel = $MeshInstance/Camera/Panel
 
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -64,8 +66,10 @@ func process_input(delta):
     if Input.is_action_just_pressed("ui_cancel"):
         if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
             Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+            panel.set_visible(false)
         else:
             Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+            panel.set_visible(true)
     # ----------------------------------
 
 func process_movement(delta):

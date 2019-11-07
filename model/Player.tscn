@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://model/cube.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://default_env.tres" type="Environment" id=3]
+[ext_resource path="res://scripts/Gui.gd" type="Script" id=4]
+[ext_resource path="res://textures/btn_exit.png" type="Texture" id=5]
+[ext_resource path="res://textures/btn_exit_down.png" type="Texture" id=6]
+[ext_resource path="res://textures/btn_exit_hover.png" type="Texture" id=7]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -20,3 +24,22 @@ material/0 = null
 
 [node name="Camera" type="Camera" parent="KinematicBody/MeshInstance"]
 environment = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="KinematicBody/MeshInstance/Camera"]
+visible = false
+margin_left = 212.0
+margin_top = 50.0
+margin_right = 812.0
+margin_bottom = 450.0
+script = ExtResource( 4 )
+
+[node name="TextureButton" type="TextureButton" parent="KinematicBody/MeshInstance/Camera/Panel"]
+modulate = Color( 0.909804, 0.0666667, 0.0666667, 1 )
+margin_left = 396.0
+margin_top = 356.0
+margin_right = 596.0
+margin_bottom = 396.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+[connection signal="pressed" from="KinematicBody/MeshInstance/Camera/Panel/TextureButton" to="KinematicBody/MeshInstance/Camera/Panel" method="_on_ExitButton_pressed"]

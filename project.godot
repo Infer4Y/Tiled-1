@@ -19,6 +19,10 @@ config/name="Tiled-1"
 run/main_scene="res://levels/level1.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://scripts/Global.gd"
+
 [input]
 
 ui_select={
