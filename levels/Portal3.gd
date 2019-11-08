@@ -1,5 +1,6 @@
-extends Panel
+extends Area
 
+onready var player = get_node("../player/KinematicBody")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -12,11 +13,9 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
-func _on_ExitButton_pressed():
-	get_tree().quit()
-
-
-func _on_lvl1_pressed():
-	get_tree().current_scene.queue_free()
-	get_tree().change_scene("res://levels/level1.tscn")
+func _on_Area_body_entered(body):
+	print (body)
+	print (player)
+	if body == player:
+		get_tree().current_scene.queue_free()
+		get_tree().change_scene("res://levels/level3.tscn")
